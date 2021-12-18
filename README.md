@@ -1,6 +1,9 @@
 # GetFavCryptoQuotes
 Get the latest quotes of your favourite crypto currencies from CMC
 
+Title : Get favourite COINS/TOKEN quotes from CMC. Rel: 1.0
+
+
 Title : Get favourite COINS/TOKEN quotes from CMC
 This script creates a webserver to display my/your favourites 
 crypto coins/token from CoinMarketCAP.
