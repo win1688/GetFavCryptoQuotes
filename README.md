@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # GetFavCryptoQuotes
 Get the latest quotes of your favourite crypto currencies from CMC
 
 Title : Get favourite COINS/TOKEN quotes from CMC. Rel: 1.0
+=======
+# getquotes_FLASK
+Title : Get favourite COINS/TOKEN quotes from CMC. Rel: 1.0 [21Q4]
+>>>>>>> ac73883 (Update README.md)
 
 
 Title : Get favourite COINS/TOKEN quotes from CMC
