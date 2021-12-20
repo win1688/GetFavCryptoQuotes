@@ -14,27 +14,19 @@ def testfunction():
 
 def retrieveAPI_KEY():
 #
-# alternate methods for hiding API-KEY
+# get cmcAPI_KEY from .env or environment variable settings
 #
-	with open('.env', 'r') as file:
-		line = file.readline()
-		os.environ[line[0:line.find('=')]] = line[line.find('=') + 1:]
+#	with open('.env', 'r') as file:
+#		line = file.readline()
+#		os.environ[line[0:line.find('=')]] = line[line.find('=') + 1:]
 
 	if 'cmcAPI_KEY' in os.environ:
-<<<<<<< HEAD
-<<<<<<< HEAD
 		API_KEY = os.environ['cmcAPI_KEY'].strip()
-=======
-		API_KEY = os.environ['cmcAPI_KEY']
->>>>>>> ddee4ce (rebased)
-=======
-		API_KEY = os.environ['cmcAPI_KEY'].strip()
->>>>>>> 3be638f (strip CR from API-key)
-		print('\n' + API_KEY + '\n')
+#		print('\n' + API_KEY + '\n')
 		return(API_KEY)
 	else:
-		print('cmcAPI_KEY missing in .evn file!! Get your own API Key into .env file before running code.\n')
-		print('Format: cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  (without quotes and CR) \n')
+#		print('cmcAPI_KEY missing in .evn file!! Get your own API Key into .env file before running code.\n')
+#		print('Format: cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  (without quotes and CR) \n')
 		return(None)
 
 def getSGDUSDrate():

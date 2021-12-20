@@ -1,7 +1,6 @@
 from flask import Flask, Blueprint, render_template, request, flash, Markup
 from requests import Request, Session
 from datetime import datetime
-#from backports import zoneinfo
 
 from queryCMC import getCMCquotesRESTapi, getSGDUSDrate
 
@@ -18,7 +17,7 @@ viewq = Blueprint(__name__, "viewq")
 
 @views.route("/")
 def home():
-	msg1 = Markup('###  Version 1.0 HOME Page - This version only displays my favourite Crypto Tokens <br>')
+	msg1 = Markup('###  Version 1.1 HOME Page - This version only displays my favourite Crypto Tokens <br>')
 	msg2 = Markup('###     next version will display the tokens you entered below <br>')
 	flash(msg1 + msg2)
 	return render_template("index.html", favcoins="CRO,CAKE,LTC,MATIC,BNB", curr="SGD")
@@ -45,7 +44,7 @@ def altcoins():
 		msg1 = Markup('to run this program. <br>')
 		msg2 = Markup('Input your API KEY from CMC into  .env file in the same directory as your python script <br><br><br>')
 		msg3 = Markup('Format: <span class="tab"></span> cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  <br><br><br>')
-		msg4 = Markup('<em>Note: without quotes and CR </em> <br>')
+		msg4 = Markup('<em>Note: without quotes </em> <br>')
 		flash(msg0 + msg1 + msg2 + msg3 + msg4)
 		return render_template("noAPIKEY.html")
 	else:
