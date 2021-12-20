@@ -1,20 +1,14 @@
-<<<<<<< HEAD
 # GetFavCryptoQuotes
 Get the latest quotes of your favourite crypto currencies from CMC
 
-Title : Get favourite COINS/TOKEN quotes from CMC. Rel: 1.0
-=======
-# getquotes_FLASK
 Title : Get favourite COINS/TOKEN quotes from CMC. Rel: 1.0 [21Q4]
->>>>>>> ac73883 (Update README.md)
 
-
-Title : Get favourite COINS/TOKEN quotes from CMC
 This script creates a webserver to display my/your favourites 
 crypto coins/token from CoinMarketCAP.
 
-You will need to get your own API-KEY from https://pro.coinmarketcap.com/signup/ and input into 
-a .env file to run this script to get the quotes from CMC
+You will need to get your own API-KEY from https://pro.coinmarketcap.com/signup/ and 
+create a cmcAPI_KEY environemnt variable that will be used to access latest quotes 
+from CMC. cmcAPI_KEY=api-key-fromCMC-xxxbbbcccddd or enter via Heroku dashboard 
 
 To get the quotes of your favourite coins edit queryCMC.py
 
