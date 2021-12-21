@@ -26,6 +26,16 @@ def altcoins():
 #	Get Exchange Rates
 #
 	exUSDSGD = getSGDUSDrate()
+	if str(exUSDSGD) == 'err10':
+		msg0 = Markup('Cannot get exchange rates from http://freecurrenyapi.net<br>')
+		msg1 = Markup('Either environment variable key not configured or  <br>')
+		msg2 = Markup('       connection to source timeout/too many retrieval exceeded per hr/day  <br><br><br>')
+		msg3 = Markup('Environement variable (KEY/VALUE) : <br>')
+		msg4 = Markup('<em> <span class="tab"></span> KEY: freecurrapi VALUE : abcdefuuuddddkkkkgggadkfhakdj  </em> <br>')
+		flash(msg0 + msg1 + msg2 + msg3 + msg4)
+		return render_template("noAPIKEY.html")
+
+
 	exSGDUSD = round(1/exUSDSGD, 4)
 #
 #	Get Current Date/time

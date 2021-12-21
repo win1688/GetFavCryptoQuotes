@@ -17,14 +17,19 @@ def retrievedotenvkey(envkey):
 		API_KEY = os.environ[envkey].strip()
 		return(API_KEY)
 	else:
-		return(None)
+		if envkey == 'freecurrapi':
+			return('err10')
+		else:
+			return('err11')
 
 def getSGDUSDrate():
 	## Currency Rate Query API ##<<------------------------------------
 
 	API_KEY = retrievedotenvkey('freecurrapi')
-	if API_KEY != None:
-		api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'&base_currency=USD'
+	if API_KEY == 'err10':
+		return('err10')
+
+	api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'&base_currency=USD'
 	headers = {
     	'Accepts': 'application/json'}
 
