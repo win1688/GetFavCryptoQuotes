@@ -48,7 +48,7 @@ def altcoins():
 	cmcquotes = getCMCquotesRESTapi(exUSDSGD)
 	if cmcquotes == 'err11':
 		msg0 = Markup('Cannot retrieves quotes from CMC. <br> Either environment vars key not configured or  <br>')
-		msg1 = Markup('<span class="tab"></span>connection to source timeout or hourly retrieval quota exceeded<br><br><br>')
+		msg1 = Markup('<span class="tab"></span>connection to source(CMC)timeout or hourly retrieval quota exceeded<br><br><br>')
 		msg2 = Markup('<br>')
 		msg3 = Markup(('Environement variable (KEY/VALUE) : <br>'))
 		msg4 = Markup('<em><span class="tab"></span> cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  </em> <br><br>')

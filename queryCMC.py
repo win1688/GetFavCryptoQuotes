@@ -59,7 +59,11 @@ def getCMCquotesRESTapi(usdrate):
 	session.headers.update(headers)
 
 	## Get CMC quote data with API key ##
-	apidata = session.get(apiendpoint_url, params=querycoins)
+	try:
+		apidata = session.get(apiendpoint_url, params=querycoins)
+	except Session.RequestException as e:
+		retrun('err11')
+#	apidata = session.get(apiendpoint_url, params=querycoins)
 
 	dataall = json.loads(apidata.text)['data']
 	data = dataall
