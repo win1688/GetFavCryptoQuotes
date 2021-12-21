@@ -29,9 +29,20 @@ def retrieveAPI_KEY():
 #		print('Format: cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  (without quotes and CR) \n')
 		return(None)
 
+def retrievedotenvkey(envkey):
+	if envkey in os.environ:
+		API_KEY = os.environ[envkey].strip()
+		return(API_KEY)
+	else:
+		return(None)
+
 def getSGDUSDrate():
 	## Currency Rate Query API ##<<------------------------------------
-	api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey=1b45ee90-501b-11ec-8902-3377424281a1&base_currency=USD'
+
+	API_KEY = retrievedotenvkey('freecurrapi')
+	if API_KEY != None:
+		api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'1b45ee90-501b-11ec-8902-3377424281a1&base_currency=USD'
+		
 
 	headers = {
     	'Accepts': 'application/json'}
