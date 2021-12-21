@@ -41,8 +41,8 @@ def getSGDUSDrate():
 
 	API_KEY = retrievedotenvkey('freecurrapi')
 	if API_KEY != None:
-		api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'1b45ee90-501b-11ec-8902-3377424281a1&base_currency=USD'
-		
+		api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'&base_currency=USD'
+
 
 	headers = {
     	'Accepts': 'application/json'}
