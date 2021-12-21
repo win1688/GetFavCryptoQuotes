@@ -46,13 +46,14 @@ def altcoins():
 	dt_string = now.strftime("%d/%m/%Y Timezone GMT+8 : %H:%M:%S")
 	fc = request.form['coin_input'] 
 	cmcquotes = getCMCquotesRESTapi(exUSDSGD)
-	if cmcquotes == None:
-		msg0 = Markup('You need to get your own API_KEY from https://pro.coinmarketcap.com/signup/  <br>')
-		msg1 = Markup('to run this program. <br>')
-		msg2 = Markup('Input your API KEY from CMC into  .env file in the same directory as your python script <br><br><br>')
-		msg3 = Markup('Format: <span class="tab"></span> cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  <br><br><br>')
-		msg4 = Markup('<em>Note: without quotes </em> <br>')
-		flash(msg0 + msg1 + msg2 + msg3 + msg4)
+	if cmcquotes == 'err11':
+		msg0 = Markup('Cannot retrieves quotes from CMC. <br> Either environment vars key not configured or  <br>')
+		msg1 = Markup('<span class="tab"></span>connection to source timeout or hourly retrieval quota exceeded<br><br><br>')
+		msg2 = Markup('<br>')
+		msg3 = Markup(('Environement variable (KEY/VALUE) : <br>'))
+		msg4 = Markup('<em><span class="tab"></span> cmcAPI_KEY=abcdefuuuddddkkkkgggadkfhakdj  </em> <br><br>')
+		msg5 = Markup('Get Free API Key from https://pro.coinmarketcap.com/signup/  <br>')
+		flash(msg0 + msg1 + msg2 + msg3 + msg4 + msg5)
 		return render_template("noAPIKEY.html")
 	else:
 		msg1 = Markup('Quotes from CMC as follows    <span class="tab"></span>   <span class="tab"></span>       Changes last 1h / 24h / 30d ')

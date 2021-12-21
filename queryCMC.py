@@ -45,15 +45,15 @@ def getCMCquotesRESTapi(usdrate):
 	apiendpoint_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
 #	apikey = retrieveAPI_KEY()
-	apikey = retrievedotenvkey('cmcAPI_KEY')
-	if apikey == None:
-		return(None)
+	API_KEY = retrievedotenvkey('cmcAPI_KEY')
+	if API_KEY == 'err11':
+		return('err11')
 
 	querycoins = { 
     	           'symbol':'LTC,CAKE,BNB,CRO,DFI,BTC,MATIC' }
 	headers = {
     	'Accepts': 'application/json',
-    	'X-CMC_PRO_API_KEY': str(apikey)
+    	'X-CMC_PRO_API_KEY': str(API_KEY)
 	}
 	session = Session()
 	session.headers.update(headers)
