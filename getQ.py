@@ -1,16 +1,13 @@
 from flask import Flask, Blueprint, render_template, request, flash, Markup
 from requests import Request, Session
 from datetime import datetime
-
 from queryCMC import getCMCquotesRESTapi, getSGDUSDrate
-
 import json
 import pprint
 import pytz
 
 app = Flask(__name__)
 #app.secret_key = "showmethemoney168"
-
 
 views = Blueprint(__name__, "views")
 viewq = Blueprint(__name__, "viewq")
@@ -51,13 +48,3 @@ def altcoins():
 		msg1 = Markup('Quotes from CMC as follows    <span class="tab"></span>   <span class="tab"></span>       Changes last 1h / 24h / 30d ')
 		flash(msg1 + cmcquotes)
 		return render_template("dispquotes.html", exrate1=str(exUSDSGD), exrate2=str(exSGDUSD), currDT=dt_string, userinput=str(fc))
-
-@app.route("/viewxxxx")
-def index():
-	flash("VIEWQ version - CMC quotes of favourite coins to display here....!!! ")
-	return render_template("index.html", favcoins="BTC,XRP,ADA,SOL", curr="SGD")
-
-@app.route("/greet", methods=["POST", "GET"])
-def getcmcq():
-	flash("Your favourite coins are : " + str(request.form['favcoins']) + "..hahaha. ")
-	return render_template("index.html")
