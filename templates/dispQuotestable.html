@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Display CMC Quotes</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/subpage2.css')}}">
+		<body>
+			<h1>USD-SGD rate = {{exrate1}} **** SGD-USD {{exrate2}}</h1>
+			<br>
+			<p>Current token price as of : {{currDT}}</p>
+			<br>
+			<table>
+				<thead>
+				<tr>
+					<th>Token</th>
+					<th>USD</th>
+					<th>SGD</th>
+					<th>Last 1h</th>
+					<th>Last 24h</th>
+					<th>Last 30d</th>
+				</tr>
+				</thead>
+				<tbody>
+					{% for message in get_flashed_messages() %}
+				 	<tr> {{message}} </tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<form action="/" method="get">
+				 <br>
+				 <p> Your input : {{userinput}} </p>
+			     <br><br>
+			     <input type="submit" value="Home Page" id="disquotes">
+			 </form>
+		</body>
+	</head>
+</html>
