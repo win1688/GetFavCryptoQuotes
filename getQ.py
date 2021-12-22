@@ -14,7 +14,7 @@ viewq = Blueprint(__name__, "viewq")
 
 @views.route("/")
 def home():
-	msg1 = Markup('###  Version 1.1 HOME Page - This version only displays my favourite Crypto Tokens <br>')
+	msg1 = Markup('###  Version 1.2a HOME Page - This version only displays my favourite Crypto Tokens <br>')
 	msg2 = Markup('###     next version will display the tokens you entered below <br>')
 	flash(msg1 + msg2)
 	return render_template("index.html", favcoins="CRO,CAKE,LTC,MATIC,BNB", curr="SGD")
@@ -56,6 +56,7 @@ def altcoins():
 		flash(msg0 + msg1 + msg2 + msg3 + msg4 + msg5)
 		return render_template("noAPIKEY.html")
 	else:
-		msg1 = Markup('Quotes from CMC as follows    <span class="tab"></span>   <span class="tab"></span>       Changes last 1h / 24h / 30d ')
-		flash(msg1 + cmcquotes)
-		return render_template("dispquotes.html", exrate1=str(exUSDSGD), exrate2=str(exSGDUSD), currDT=dt_string, userinput=str(fc))
+#		msg1 = Markup('Quotes from CMC as follows    <span class="tab"></span>   <span class="tab"></span>       Changes last 1h / 24h / 30d ')
+#		flash(msg1 + cmcquotes)
+		flash(cmcquotes)
+		return render_template("dispQuotestable.html", exrate1=str(exUSDSGD), exrate2=str(exSGDUSD), currDT=dt_string, userinput=str(fc))

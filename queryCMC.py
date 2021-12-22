@@ -87,15 +87,15 @@ def getCMCquotesRESTapi(usdrate):
 		perchg24h = round(perchg24h,2)
 		perchg30d = round(perchg30d,2)
 		if dispaltcolor < 1: 
-			disptext = disptext + Markup('<font color="#71EFA3"> ' + tokensymbol + ' is US$' + str(curr_price) +
-    	                      ' / S$' + str(curr_priceSGD) +
-        	                  ' <span class="tab"></span>  <span class="tab"></span>     ' + str(perchg1h) + '% / ' + str(perchg24h) +'% / ' + 
-            	              str(perchg30d) + '% <<< ------</font> <br>') 
+			disptext = disptext + Markup('<tr><td><font color="#71EFA3"> ' + tokensymbol + '</td><td><font color="#71EFA3">$' + str(curr_price) +
+    	                      '</td><td> $ ' + str(curr_priceSGD) +
+        	                  ' </td><td><font color="#71EFA3">' + str(perchg1h) + '% </td><td><font color="#71EFA3"> ' + str(perchg24h) +'% </td><td> ' + 
+            	              str(perchg30d) + '% </td> ------</font></tr>') 
 			dispaltcolor = 1
 		else:
-			disptext = disptext + Markup('<font color="#FF9966">' + tokensymbol + ' is US$' + str(curr_price) +
-           		              ' / S$' + str(curr_priceSGD) +
-               		          ' <span class="tab"></span>   <span class="tab"></span>   ' + str(perchg1h) + '% / ' + str(perchg24h) +'% / ' + 
-                   		      str(perchg30d) + '% <<< ------</font> <br>') 
+			disptext = disptext + Markup('<tr><td><font color="#FF9966">' + tokensymbol + '</td><td><font color="#FF9966">$' + str(curr_price) +
+           		              '</td><td> $' + str(curr_priceSGD) +
+               		          ' </td><td><font color="#FF9966">' + str(perchg1h) + '% </td><td><font color="#FF9966"> ' + str(perchg24h) +'% </td><td> ' + 
+                   		      str(perchg30d) + '% </td> ------</font></tr>') 
 			dispaltcolor = 0
 	return(disptext)
