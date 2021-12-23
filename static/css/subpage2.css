@@ -37,10 +37,10 @@ input {
 
 table {
   table-layout: fixed;
-  width: 90%;
+  width: 100%;
   color: yellow;
   font-size: 1.8em;
-  border: 3px solid green;
+  border: 3px seagreen;
 }
 
 td {
@@ -49,6 +49,7 @@ td {
   white-space: nowrap;
   text-overflow: ellipsis;
   color: floralwhite;
+  text-align: left;
 }
 
 
