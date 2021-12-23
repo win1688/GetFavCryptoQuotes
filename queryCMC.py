@@ -88,7 +88,7 @@ def getCMCquotesRESTapi(usdrate):
 		perchg30d = round(perchg30d,2)
 		if dispaltcolor < 1: 
 			disptext = disptext + Markup('<tr><td><font color="#71EFA3"> ' + tokensymbol + '</td><td><font color="#71EFA3">$' + str(curr_price) +
-    	                      '</td><td> $ ' + str(curr_priceSGD) +
+    	                      '</td><td> $' + str(curr_priceSGD) +
         	                  ' </td><td><font color="#71EFA3">' + str(perchg1h) + '% </td><td><font color="#71EFA3"> ' + str(perchg24h) +'% </td><td> ' + 
             	              str(perchg30d) + '% </td> ------</font></tr>') 
 			dispaltcolor = 1
