@@ -35,6 +35,23 @@ input {
 	font-size: 1.3em;
 }
 
+table {
+  table-layout: fixed;
+  width: 90%;
+  color: yellow;
+  font-size: 1.8em;
+  border: 3px solid green;
+}
+
+td {
+  border: 5px solid blue;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: floralwhite;
+}
+
+
 input:focus {
 	border:  solid 5px #00FFCE;
 }
