@@ -40,7 +40,7 @@ def getSGDUSDrate():
 	return(exUSDSGD)
 
 
-def getCMCquotesRESTapi(usdrate):
+def getCMCquotesRESTapi(usdrate,fcInput):
 	## CMC QUERY API ##<<------------------------------------
 	apiendpoint_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
@@ -48,9 +48,12 @@ def getCMCquotesRESTapi(usdrate):
 	API_KEY = retrievedotenvkey('cmcAPI_KEY')
 	if API_KEY == 'err11':
 		return('err11')
+	qcoins = str(fcInput).strip()
+	if not qcoins:
+		qcoins = 'LTC,CAKE,BNB,CRO,DFI,BTC,MATIC'
 
 	querycoins = { 
-    	           'symbol':'LTC,CAKE,BNB,CRO,DFI,BTC,MATIC' }
+    	           'symbol': qcoins }
 	headers = {
     	'Accepts': 'application/json',
     	'X-CMC_PRO_API_KEY': str(API_KEY)

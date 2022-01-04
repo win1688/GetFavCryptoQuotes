@@ -14,7 +14,7 @@ viewq = Blueprint(__name__, "viewq")
 
 @views.route("/")
 def home():
-	msg1 = Markup('###  Version 1.2a HOME Page - This version only displays my favourite Crypto Tokens <br>')
+	msg1 = Markup('###  Version 1.3a HOME Page - This version only displays my favourite Crypto Tokens <br>')
 	msg2 = Markup('###     next version will display the tokens you entered below <br>')
 	flash(msg1 + msg2)
 	return render_template("index.html", favcoins="CRO,CAKE,LTC,MATIC,BNB", curr="SGD")
@@ -45,7 +45,7 @@ def altcoins():
 
 	dt_string = now.strftime("%d/%m/%Y Timezone GMT+8 : %H:%M:%S")
 	fc = request.form['coin_input'] 
-	cmcquotes = getCMCquotesRESTapi(exUSDSGD)
+	cmcquotes = getCMCquotesRESTapi(exUSDSGD,fc)
 	if cmcquotes == 'err11':
 		msg0 = Markup('Cannot retrieves quotes from CMC. <br> Either environment vars key not configured or  <br>')
 		msg1 = Markup('<span class="tab"></span>connection to source(CMC)timeout or hourly retrieval quota exceeded<br><br><br>')
