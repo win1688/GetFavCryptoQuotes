@@ -10,6 +10,13 @@ p {
 	margin:  30px;
 }
 
+h1 {
+	color: aquamarine;
+	font-stretch: extra-expanded;
+	font-family: fantasy;
+	font-size: 3.0em;
+}
+
 input {
 	background-color: yellow;
 	color: darkmagenta;
