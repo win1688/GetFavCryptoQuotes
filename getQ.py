@@ -15,10 +15,10 @@ viewq = Blueprint(__name__, "viewq")
 @views.route("/")
 def home():
 	msg1 = Markup('###  Version 1.5 HOME Page - Default displays latest prices of my favourite Crypto Tokens <br>')
-	msg2 = Markup('###  You may enter the tokens you want to display. (Note:No error checking yet)<br>')
+	msg2 = Markup('###  Option to enter the tokens you want to display. (Note:No error checking yet)<br>')
 	msg3 = Markup('###  Will display "Internal Server Error" if symbols you entered is not valid or not supported by CMC<br>')
 	flash(msg1 + msg2 + msg3)
-	return render_template("index.html", favcoins="CRO,CAKE,LTC,MATIC,BNB", curr="SGD")
+	return render_template("index.html", favcoins="CRO,CAKE,LTC,MATIC,DFI,BNB", curr="SGD")
 #	return "home getq page"
 
 @views.route("/viewq", methods=["POST"])
