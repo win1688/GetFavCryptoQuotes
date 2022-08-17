@@ -1,6 +1,7 @@
 from requests import Request, Session
 from flask import Markup
 
+import requests
 import pprint
 import json
 import os
@@ -22,13 +23,12 @@ def retrievedotenvkey(envkey):
 		else:
 			return('err11')
 
-def getSGDUSDrate():
-	## Currency Rate Query API ##<<------------------------------------
+def getSGDUSDratexx():
+	## Currency Rate Query API ##<<--Deprecated 2022-Aug ----------------
 
 	API_KEY = retrievedotenvkey('freecurrapi')
 	if API_KEY == 'err10':
 		return('err10')
-
 	api_exch_url = 'https://freecurrencyapi.net/api/v2/latest?apikey='+API_KEY+'&base_currency=USD'
 	headers = {
     	'Accepts': 'application/json'}
@@ -39,6 +39,29 @@ def getSGDUSDrate():
 	exUSDSGD = json.loads(exchngrates.text)['data']['SGD']
 	return(exUSDSGD)
 
+def getSGDUSDrate():
+	## Currency Rate Query API ##<<--- sdrive2011a/RealweardemoZaiBB-------------
+
+	API_KEY = retrievedotenvkey('freecurrapi')
+	if API_KEY == 'err10':
+		return('err10')
+	api_exch_url = 'https://api.apilayer.com/currency_data/convert?to=SGD&from=USD&amount=1'
+
+	payload = {}
+	headers= {
+  		"apikey": API_KEY
+		}
+
+	response = requests.request("GET", api_exch_url, headers=headers, data = payload)
+
+	status_code = response.status_code
+	result = response.text
+
+	if status_code == 200:
+		exUSDSGD = json.loads(result)['info']['quote']
+		return(exUSDSGD)
+	else:
+		return('err10')
 
 def getCMCquotesRESTapi(usdrate,fcInput):
 	## CMC QUERY API ##<<------------------------------------
@@ -65,7 +88,7 @@ def getCMCquotesRESTapi(usdrate,fcInput):
 	try:
 		apidata = session.get(apiendpoint_url, params=querycoins)
 	except Session.RequestException as e:
-		retrun('err11')
+		return('err11')
 #	apidata = session.get(apiendpoint_url, params=querycoins)
 
 	dataall = json.loads(apidata.text)['data']
